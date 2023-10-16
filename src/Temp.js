@@ -1,10 +1,18 @@
 import React from 'react';
-import { Button, Typography, Paper } from '@material-ui/core';
+import { Paper, Typography, IconButton } from '@material-ui/core';
+import FileCopyIcon from '@material-ui/icons/FileCopy'; // Material-UI copy icon
 
 const paragraphStyles = {
   overflow: 'hidden',
-  textOverflow: 'ellipsis', // You can adjust this behavior as needed
+  textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
+  fontSize: '14px', // Smaller font size
+};
+
+const iconButtonStyles = {
+  position: 'absolute',
+  bottom: '8px',
+  right: '8px',
 };
 
 function CopyableParagraph({ title, message }) {
@@ -13,18 +21,14 @@ function CopyableParagraph({ title, message }) {
   };
 
   return (
-    <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px' }}>
+    <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', position: 'relative' }}>
       <Typography variant="h6">{title}</Typography>
       <Typography variant="body1" style={paragraphStyles}>
         {message}
       </Typography>
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={copyToClipboard}
-      >
-        Copy
-      </Button>
+      <IconButton style={iconButtonStyles} onClick={copyToClipboard}>
+        <FileCopyIcon />
+      </IconButton>
     </Paper>
   );
 }

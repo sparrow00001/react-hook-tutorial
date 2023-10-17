@@ -49,3 +49,47 @@ function YourComponent() {
 }
 
 export default YourComponent;
+
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+.container {
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  align-items: flex-start; /* Align the form at the top vertically */
+  height: 100vh; /* Adjust the height to your preference */
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form elements vertically */
+  margin-right: 20px; /* Add margin for spacing between the form and custom paragraphs */
+}
+
+
+
+
+
+<div className="container">
+      <div className="form-box">
+        <TextField
+          name="field1"
+          value={formData.field1}
+          onChange={handleChange}
+          label="Field 1"
+        />
+        {/* Add similar TextFields for field2, field3, and field4 */}
+        <Button variant="contained" color="primary" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </div>
+      {showCustomParagraphs && (
+        <div className="custom-paragraphs">
+          <Typography variant="body1">Custom Paragraph 1</Typography>
+          <Typography variant="body1">Custom Paragraph 2</Typography>
+        </div>
+      )}
+    </div>
